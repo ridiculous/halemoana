@@ -1,0 +1,10 @@
+log
+*.log
+tmp
+tmp/**/*
+.idea
+.idea/*
+.DS_Store
+.env
+.idea/misc.xml
+config/database.yml

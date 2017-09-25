@@ -1,0 +1,47 @@
+body {
+    padding: 90px 10px 10px 10px;
+}
+
+body header#nav_bar {
+    position: absolute;
+}
+
+body header#nav_bar #logo h1 {
+    width: 280px;
+}
+
+body #nav_bar .nav #page_nav {
+    display: none;
+}
+
+body .wrapper {
+    width: 100%
+}
+
+body .wrapper h3 {
+    padding-left: 5px;
+}
+
+body .w49,
+body .w500,
+body .w600
+{
+    width: 100%;
+}
+
+body .wrapper ul#myGallery {
+    padding-left: 0;
+}
+
+body .hidden-mobile {
+    display: none !important;
+}
+
+body ul {
+    padding-left: 5px;
+    margin-left: 0;
+}
+
+body .no-pad-mobile {
+    padding: 0 !important;
+}
