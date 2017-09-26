@@ -2,28 +2,29 @@
 <%= hidden_field_tag(:base_rate, base_rate) %>
 <%= hidden_field_tag(:tax_rate, tax_rate) %>
 <%= hidden_field_tag(:main_pic_url, asset_path('front-main.jpg')) %>
-<div class="wrapper medium">
-	<h2 class="c light-gray" style="margin-top: 0;">
-		Welcome to Hana's Tradewind Cottage
-	</h2>
+<div style="box-shadow: white 0 -50px 50px 35px">
+  <div class="wrapper medium">
+    <h2 class="c light-gray" style="margin-top: 0;">
+      Welcome to Hale Moana
+    </h2>
 
-	<p>
-		As you follow the private drive through the tropical flower garden to our
-		secluded Tradewinds Cottage, you will
-		discover the Hawaii that you came to see.
-	</p>
+    <p>
+      Far from the crowds and Condos. Far from the noise and tourist traps. You find the Old Hawaii of HANA, a small community overlooking beautiful Hana Bay on the windward east end of Maui. Hana is cooled by the trade winds that blow across the Pacific and nourish us with evening showers that make this part of Maui lush and tropical.
+      As you travel the magical 'road to Hana' you leave the real world behind and slowly enter the land of old Hawaii, with waterfalls, majestic coastal views and jungle rain forests. By the time you arrive in Hana you will sense a slight change. You will feel a slower pace, more peaceful and quiet.
+    </p>
 
-	<p>
-		Surrounded by exotic flowers and tropical fruit trees, our two bedroom, one bath cottage has <b>Wi-Fi</b>,
-		<b>cable TV</b>, <b>DVD and CD stereo</b>. There is a gas cook top, refrigerator and microwave oven in the
-		newly remodeled kitchen with a propane barbeque outside on the covered deck.
-	</p>
+    <p>
+      Hale Moana is a beautiful newer 2 bedroom 2 bathroom home. It is situated on 2 acres of tropical flowers, foliage and fruit trees. The home features a full kitchen with granite counters, gas stove, microwave, coffee maker, toaster oven, Cable TV, Wireless internet,  a large master bath with a walk in tile shower and separate soaking tub. Both bedrooms have a king size bed. There is a large lanai where you can enjoy the cool breeze, have an outdoor meal or simple relax and read a book.
+    </p>
 
-	<p>
-		The cottage has a queen size bed and two twin beds. You'll enjoy the splendor of the
-		slopes of Haleakala while relaxing in your private hot tub or cooking your favorite island-style feast on the
-		barbeque under your covered lanai.
-	</p>
+    <p>
+      We are located just 3 miles before the actual town of Hana, and a short drive to <a href="https://hawaiistateparks.org/parks/maui/waiʻanapanapa-state-park/" target="_blank">Waianapanapa State Park</a>. Hale Moana is located in a safe, quite neighborhood and a short dive (7-15 min) to town and many popular attractions.
+    </p>
+
+    <p>
+      The home is perfect for couples or small families (<b>4 people max</b>). We do not allow group gatherings, parties, or animals. It is a quite residential neighborhood and we are very respectful of our neighbors. We do have an onsite manager who is available should you have any questions or problems.
+    </p>
+  </div>
 </div>
 
 <%= section_header('Reservations') %>
@@ -36,16 +37,18 @@
 
 	<h4>Rates</h4>
 	<ul class="pad medium-minor">
-		<li>Base rate is $<%= base_rate %></li>
-		<li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-			<span>+<%= tax_rate * 100 %>% tax</span> =
-			<span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) %></span></li>
-		<li>There is a charge of $25 per night for each additional person. For the rate of $<%= base_rate.to_i %> per
-			night + tax for 2 people, you would have the use of just <b>one</b> of the bedrooms. If there are 2 in your party but you
-			need both rooms, please notify us ahead of time, as it is an additional $25 per night + tax.
-		</li>
-		<li>The cottage can accommodate a <b>maximum of 4</b> guests. <b>No pets.</b> If you have a service animal, please notify us ahead of time.</li>
-		<li>$50 cleaning fee for one or two night reservations.  No cleaning fee for stays of three nights or more.</li>
+		<li>Base rate is $<%= base_rate %> for 2 people</li>
+    <% if Date.today <= Date.parse("April 1st, 2018") %>
+        <li>Winter Rate is $285.00 for 2 people (<b>Dec 18th - April 1st</b>)</li>
+    <% end %>
+    <li>$25.00 for each additional person (<b>4 person max</b>).</li>
+    <li>$<%= cleaning_fee %> Cleaning fee</li>
+    <li>For the rate of $<%= base_rate %> per night + tax for 2 people, you would have the use of just one of the bedrooms and bathrooms. If there are 2 in your party but you need both bedrooms/bathrooms, <b>please notify us ahead of time</b>, as it is an additional $25 per night + tax.</li>
+		<li>We have a <b>2 night minimum</b> for advance reservations. We will accept a 1 night stay just 7 days in advance if we have availability.</li>
+    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
+      <span>+<%= tax_rate * 100 %>% tax</span>
+      <span>+<%= cleaning_fee %> cleaning fee</span> =
+      <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) + cleaning_fee.to_f %></span></li>
 	</ul>
 
 	<h4>Availability</h4>
@@ -110,12 +113,6 @@
 
 	<ul class="pad medium-minor">
 		<li>
-			<b>Minimum stay:</b> We have a two night minimum stay for all reservations made more than a week in advance,
-			except when there is an open night “sandwiched” between two existing reservations. We are happy to accept one
-			night stays 7 days in advance. There will be a $50 cleaning fee for 1 night stays.
-		</li>
-
-		<li>
 			<b>Deposits:</b> A 25% deposit is required to reserve the cottage and the balance is due 30 days in advance.
 		</li>
 
@@ -130,24 +127,20 @@
 			Check-out time is 11:00 a.m.
 		</li>
 
-		<li>
-			<b>Cancellation:</b>
-			If you need to cancel, we will refund the amount that you paid <i>less</i> a <b>25% service fee</b>.
-			Guests that check out prior to the registered check-out date will forfeit the balance of the payment. If
-			anything is missing or damaged after you check out, we will charge your credit card for the cost of the
-			repair and/or replacement of the item. Please let us know if there are any accidents or problems.
-		</li>
+    <li>
+      <b>Laundry facilities:</b> Available free of charge for guests staying 3 or more nights. Please contact the manager (Rebecca) to schedule a time to do laundry.
+    </li>
 
 		<li>
-			<b>Laundry facilities:</b> Available free of charge for guests staying 5 or more nights.
+			<b>Cancellation:</b>
+      A full refund, less a 25% cancellation fee, will be given for cancellations made <b>30 days</b> or more prior to arrival. If you cancel less than 30 days prior to your arrival or depart earlier than your registered check out date, we will refund the amount that you paid less a 25% cancellation fee only if we are able to rebook the entire stay at Hale Moana.
+
+      <p>If anything is missing or damaged after you check out, we will charge your credit card for the cost of the repair and/or replacement of the item. Please let us know if there are any accidents or problems.</p>
 		</li>
 
 		<li>
 			<b>Special Terms:</b>
-			Rates and policies are subject to change.
-			To provide a smoke free environment for our guests, smoking is only allowed outside.
-			No pets are allowed at the cottage. If you have a licensed service dog please contact us ahead of time, as we do have a dog
-			on the property.
+      Rates and policies are subject to change. To provide a smoke free environment for our guests, smoking is only allowed outside. No pets are allowed at the house. If you have a licensed service dog please contact us ahead of time, as we do have a dog on the property.
 			<br/>
 
 			<p><a href="#contact" class="linked scroll-to">Make a reservation inquiry.</a></p>
@@ -201,7 +194,7 @@
 			</p>
 
 			<p class="medium-major">
-				Email: <a href="mailto:brianna@tradewindscottage.net" class="linked">brianna@tradewindscottage.net</a>
+				Email: <a href="mailto:hanamauirentals@gmail.com" class="linked">hanamauirentals@gmail.com</a>
 			</p>
 		</div>
 		<div>
@@ -261,15 +254,8 @@
 	</ul>
 	<h4>Location</h4>
 
-	<p>The map below shows the route from the Kahului Airport (OGG) to the Tradewind Cottage (Approximately 52
-		miles).</p>
+	<p>The map below shows the route from the Kahului Airport (OGG) to the Hale Moana (Approximately 52 miles).</p>
 	<% unless Rails.env.development? %>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m29!1m12!1m3!1d238610.7238657256!2d-156.3722470141209!3d20.860254975716938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e6!4m5!1s0x7954d2b01b8e0419%3A0xc35ea962dd1a9041!2sKahului+Airport%2C+1+Kahului+Airport+Rd%2C+Kahului%2C+HI+96732!3m2!1d20.896791999999998!2d-156.43293799999998!4m5!1s0x7954ada37cc29da1%3A0xb9089f2ff788b1df!2sHana&#39;s+Tradewind+Cottages%2C+135+Alalele+Rd%2C+Hana%2C+HI+96713!3m2!1d20.790406!2d-156.01775899999998!5e0!3m2!1sen!2sus!4v1394938868443" width="100%" height="450" frameborder="0" style="border:0"></iframe>
 	<% end %>
-
-  <p>
-    **NOTE: The hot tub is a mechanical device and is occasionally out of order for maintenance/repairs. We can NOT
-    guarantee that it will be in operation during your stay.
-  </p>
-
 </div>
