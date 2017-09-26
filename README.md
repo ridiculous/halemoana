@@ -1,4 +1,4 @@
-Tradewinds cottage
+Hale Moana Cottage
 =======
 
-Website for [tradewindscottage.net](http://tradewindscottage.net)
+Website for [halemoana.com](http://halemoana.com)
