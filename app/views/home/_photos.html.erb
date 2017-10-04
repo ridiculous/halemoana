@@ -1,6 +1,7 @@
 <ul id="myGallery">
   <% suffix = request.xhr? ? '_m' : '' %>
   <li><%= image_tag(asset_path("slides/driveway#{suffix}.jpg"), title: "Private Driveway") %></li>
+  <li><%= image_tag(asset_path("slides/front-deck#{suffix}.jpg"), title: "Front Deck") %></li>
   <li><%= image_tag(asset_path("slides/dining_room#{suffix}.jpg"), title: "Dining Room") %></li>
   <li><%= image_tag(asset_path("slides/dining_room_angle2#{suffix}.jpg"), title: "Dining Table") %></li>
   <li><%= image_tag(asset_path("slides/kitchen#{suffix}.jpg"), title: "Full Kitchen") %></li>
@@ -11,4 +12,5 @@
   <li><%= image_tag(asset_path("slides/bathroom_shower#{suffix}.jpg"), title: 'Bathroom Shower') %></li>
   <li><%= image_tag(asset_path("slides/second_bedroom#{suffix}.jpg"), title: "Second Bedroom") %></li>
   <li><%= image_tag(asset_path("slides/second_bathroom_closeup#{suffix}.jpg"), title: "Second Bathroom") %></li>
+  <li><%= image_tag(asset_path("slides/koki-beach#{suffix}.jpg"), title: "Koki Beach") %></li>
 </ul>
