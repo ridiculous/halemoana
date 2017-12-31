@@ -46,7 +46,7 @@
     <li>For the rate of $<%= base_rate %> per night + tax for 2 people, you would have the use of just one of the bedrooms and bathrooms. If there are 2 in your party but you need both bedrooms/bathrooms, <b>please notify us ahead of time</b>, as it is an additional $25 per night + tax.</li>
 		<li>We have a <b>2 night minimum</b> for advance reservations. We will accept a 1 night stay just 7 days in advance if we have availability.</li>
     <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+<%= tax_rate * 100 %>% tax</span>
+      <span>+<%= (tax_rate * 100).round(2) %>% tax</span>
       <span>+<%= cleaning_fee %> cleaning fee</span> =
       <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) + cleaning_fee.to_f %></span></li>
 	</ul>
