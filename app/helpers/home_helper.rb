@@ -1,15 +1,11 @@
 module HomeHelper
 
   def base_rate
-    if Date.today <= Date.parse("April 1st, 2018") && Date.today >= Date.parse("December 18, 2017")
-      '285.00'
-    else
-      '265.00'
-    end
+    '315.00'
   end
 
   def cleaning_fee
-    '75.00'
+    '100.00'
   end
 
   def tax_rate

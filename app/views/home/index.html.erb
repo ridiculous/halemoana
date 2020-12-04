@@ -38,16 +38,11 @@
 	<h4>Rates</h4>
 	<ul class="pad medium-minor">
 		<li>Base rate is $<%= base_rate %> for 2 people</li>
-    <% if Date.today <= Date.parse("April 1st, 2018") %>
-        <li>Winter Rate is $285.00 for 2 people (<b>Dec 18th - April 1st</b>)</li>
-    <% end %>
-    <li>$25.00 for each additional person (<b>4 person max</b>).</li>
     <li>$<%= cleaning_fee %> Cleaning fee</li>
-    <li>For the rate of $<%= base_rate %> per night + tax for 2 people, you would have the use of just one of the bedrooms and bathrooms. If there are 2 in your party but you need both bedrooms/bathrooms, <b>please notify us ahead of time</b>, as it is an additional $25 per night + tax.</li>
 		<li>We have a <b>2 night minimum</b> for advance reservations. We will accept a 1 night stay just 7 days in advance if we have availability.</li>
-    <li>Nightly rate for <%= text_field_tag(:people_count, 2, class: 'instep', maxlength: 2) %> people
-      <span>+<%= (tax_rate * 100).round(2) %>% tax</span>
-      <span>+<%= cleaning_fee %> cleaning fee</span> =
+    <li>Nightly rate
+      <span> + <%= (tax_rate * 100).round(2) %>% tax</span>
+      <span>+ <%= cleaning_fee %> cleaning fee</span> =
       <span class="bold" id="rate_result">$<%= ((tax_rate + 1) * base_rate.to_f).round(2) + cleaning_fee.to_f %></span></li>
 	</ul>
 
