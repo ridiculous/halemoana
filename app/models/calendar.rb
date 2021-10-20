@@ -5,7 +5,6 @@ class Calendar < ActiveRecord::Base
 
   class << self
     def check_availability(arrival, depart)
-      VRBO::Calendar.new.available?(arrival, depart, latest.try(:available_dates))
     end
 
     def outdated?
