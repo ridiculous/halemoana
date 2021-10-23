@@ -272,22 +272,22 @@ h2 {
 
 .small {
     font-size: 12px;
-    line-height: 14px;
+    line-height: 18px;
 }
 
 .medium-minor {
     font-size: 16px;
-    line-height: 18px;
+    line-height: 22px;
 }
 
 .medium {
     font-size: 18px;
-    line-height: 22px;
+    line-height: 26px;
 }
 
 .medium-major {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 22px;
+    line-height: 30px;
 }
 
 .large-minor {
