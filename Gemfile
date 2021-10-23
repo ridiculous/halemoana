@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip.sub('ruby-', '')
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 6'
 
 gem 'pg'
-gem 'unicorn', '~> 4.9.0'
+gem 'puma'
 
 group :assets do
   gem 'sass-rails'
@@ -13,4 +13,3 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'rails_12factor', group: :production
